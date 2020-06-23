@@ -32,7 +32,7 @@ let menuItems = [
   Step 6: Use 'menuMaker' to create a menu using the 'menuItems' array, and append the returned markup to the DOM.
 */
 function menuMaker(array){
-  const header = document.querySelector("div.header");
+  // const header = document.querySelector("div.articles");
   const menuDiv = document.createElement("div");
   menuDiv.setAttribute("class", "menu");
   const startul = document.createElement("ul");
@@ -44,7 +44,7 @@ function menuMaker(array){
   });
 
   menuDiv.append(startul);
-  header.append(menuDiv);
+  // header.prepend(menuDiv);
 
   const menuButton = document.querySelector("img.menu-button");
 
@@ -53,8 +53,9 @@ function menuMaker(array){
     menuDiv.setAttribute("class", "menu--open");
   });
 
-  return menuDiv.setAttribute("class", "menu");
+  return menuDiv;
 }
 
+const header = document.querySelector("div.articles");
+header.prepend(menuMaker(menuItems));
 
-menuMaker(menuItems);
