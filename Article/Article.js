@@ -111,3 +111,47 @@ const data = [
 
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
 */
+
+function articleMaker(title, date, firstParagraph, secondParagraph, thirdParagraph){
+
+  const main = document.querySelector('div.articles');
+  const titles = document.createElement("h2");
+  titles.textContent = title;
+  const titleName = main.append(titles);
+
+  const dates = document.createElement("p");
+  dates.setAttribute("class", "date");
+  dates.textContent = date;
+  const finalDate = main.append(dates);
+
+  for(let i = 1; i<=3; i++){
+    const paragraphs = document.createElement("p");
+    main.append(paragraphs);
+  }
+
+  const paragraph1 = document.querySelector("div.articles p:nth-child(3)");
+  paragraph1.textContent = firstParagraph;
+
+  const paragraph2 = document.querySelector("div.articles p:nth-child(4)");
+  paragraph2.textContent = secondParagraph;
+
+  const paragraph3 = document.querySelector("div.articles p:nth-child(5)");
+  paragraph3.textContent = thirdParagraph;
+
+const spanButton = document.createElement("span");
+spanButton.setAttribute("class", "expandButton");
+main.append(spanButton);
+spanButton.addEventListener("click", (e)=>{
+  main.setAttribute("class", "article-open");
+});
+
+return main;
+
+}
+
+data.forEach((item)=>{
+  console.log(item.title, item.date, item.firstParagraph, item.secondParagraph, item.thirdParagraph);
+  articleMaker(item.title, item.date, item.firstParagraph, item.secondParagraph, item.thirdParagraph);
+});
+
+
