@@ -117,40 +117,40 @@ function articleMaker(title, date, firstParagraph, secondParagraph, thirdParagra
   const main = document.querySelector('div.articles');
   const titles = document.createElement("h2");
   titles.textContent = title;
-  const titleName = main.append(titles);
+  main.append(titles);
 
   const dates = document.createElement("p");
   dates.setAttribute("class", "date");
   dates.textContent = date;
-  const finalDate = main.append(dates);
+  main.append(dates);
 
-  for(let i = 1; i<=3; i++){
-    const paragraphs = document.createElement("p");
-    main.append(paragraphs);
-  }
+  const paragraph1 = document.createElement("p");
+  main.append(paragraph1);
 
-  const paragraph1 = document.querySelector("div.articles p:nth-child(3)");
+  const paragraph2 = document.createElement("p");
+  main.append(paragraph2);
+
+  const paragraph3 = document.createElement("p");
+  main.append(paragraph3);
+
   paragraph1.textContent = firstParagraph;
-
-  const paragraph2 = document.querySelector("div.articles p:nth-child(4)");
   paragraph2.textContent = secondParagraph;
-
-  const paragraph3 = document.querySelector("div.articles p:nth-child(5)");
   paragraph3.textContent = thirdParagraph;
 
-const spanButton = document.createElement("span");
-spanButton.setAttribute("class", "expandButton");
-main.append(spanButton);
-spanButton.addEventListener("click", (e)=>{
+  const spanButton = document.createElement("span");
+  spanButton.setAttribute("class", "expandButton");
+  spanButton.textContent = "span";
+  main.append(spanButton);
+  spanButton.addEventListener("click", (e)=>{
+  console.log(e);
   main.setAttribute("class", "article-open");
-});
+  });
 
 return main;
 
 }
 
 data.forEach((item)=>{
-  console.log(item.title, item.date, item.firstParagraph, item.secondParagraph, item.thirdParagraph);
   articleMaker(item.title, item.date, item.firstParagraph, item.secondParagraph, item.thirdParagraph);
 });
 
