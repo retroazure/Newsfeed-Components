@@ -40,22 +40,21 @@ function menuMaker(array){
   menuItems.forEach((item)=>{
     const list = document.createElement("li");
     list.textContent = item;
-    startul.append(list);
+    startul.appendChild(list);
   });
 
-  menuDiv.append(startul);
+  menuDiv.appendChild(startul);
   // header.prepend(menuDiv);
 
   const menuButton = document.querySelector("img.menu-button");
 
   menuButton.addEventListener("click", (e)=>{
     console.log(e);
-    menuDiv.setAttribute("class", "menu--open");
+    menuDiv.classList.toggle("menu--open");
   });
 
   return menuDiv;
 }
 
-const header = document.querySelector("div.articles");
-header.prepend(menuMaker(menuItems));
+document.querySelector(".header").appendChild(menuMaker(menuItems));
 

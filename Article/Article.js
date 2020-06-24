@@ -117,33 +117,33 @@ function articleMaker(title, date, firstParagraph, secondParagraph, thirdParagra
   const main = document.querySelector('div.articles');
   const titles = document.createElement("h2");
   titles.textContent = title;
-  main.append(titles);
+  main.appendChild(titles);
 
   const dates = document.createElement("p");
   dates.setAttribute("class", "date");
   dates.textContent = date;
-  main.append(dates);
+  main.appendChild(dates);
 
   const paragraph1 = document.createElement("p");
-  main.append(paragraph1);
+  main.appendChild(paragraph1);
 
   const paragraph2 = document.createElement("p");
-  main.append(paragraph2);
+  main.appendChild(paragraph2);
 
   const paragraph3 = document.createElement("p");
-  main.append(paragraph3);
+  main.appendChild(paragraph3);
 
   paragraph1.textContent = firstParagraph;
   paragraph2.textContent = secondParagraph;
   paragraph3.textContent = thirdParagraph;
 
   const spanButton = document.createElement("span");
-  spanButton.setAttribute("class", "expandButton");
-  spanButton.textContent = "span";
-  main.append(spanButton);
+  spanButton.classList.add("expandButton");
+  spanButton.innerHTML = "span";
+  main.appendChild(spanButton);
   spanButton.addEventListener("click", (e)=>{
   console.log(e);
-  main.setAttribute("class", "article-open");
+  main.classList.toggle("article-open");
   });
 
 return main;
