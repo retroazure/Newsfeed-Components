@@ -150,6 +150,16 @@ return main;
 
 }
 
+data.push({
+  title: 'We are the Winners',
+  date: 'March 5th, 2020',
+  firstParagraph: `Living the American Dream.`,
+
+  secondParagraph: 'Striving for Greatness.',
+
+  thirdParagraph: 'Being Successful.'
+});
+
 data.forEach((item)=>{
   articleMaker(item.title, item.date, item.firstParagraph, item.secondParagraph, item.thirdParagraph);
 });
