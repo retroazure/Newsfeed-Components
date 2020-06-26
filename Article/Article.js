@@ -139,10 +139,9 @@ function articleMaker(title, date, firstParagraph, secondParagraph, thirdParagra
 
   const spanButton = document.createElement("span");
   spanButton.classList.add("expandButton");
-  spanButton.innerHTML = "span";
+  spanButton.innerHTML = 'Click to Expand';
   main.appendChild(spanButton);
   spanButton.addEventListener("click", (e)=>{
-  console.log(e);
   main.classList.toggle("article-open");
   });
 

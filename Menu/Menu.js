@@ -30,8 +30,10 @@ let menuItems = [
   Step 5: return your div with a 'menu' class.
 
   Step 6: Use 'menuMaker' to create a menu using the 'menuItems' array, and append the returned markup to the DOM.
-*/
+  */
+
 function menuMaker(array){
+
   // const header = document.querySelector("div.articles");
   const menuDiv = document.createElement("div");
   menuDiv.setAttribute("class", "menu");
@@ -48,13 +50,28 @@ function menuMaker(array){
 
   const menuButton = document.querySelector("img.menu-button");
 
+  
   menuButton.addEventListener("click", (e)=>{
-    console.log(e);
-    menuDiv.classList.toggle("menu--open");
+
+    if(menuDiv.classList.contains("menu--open")){
+      gsap.to('.menu', {duration:1.5, x:0, onComplete: ()=>{
+        menuDiv.classList.remove("menu--open");
+      }});
+    }
+    else{
+      gsap.to('.menu', {duration:1.5, x:-500});
+      menuDiv.classList.add("menu--open");
+    }
+
   });
 
   return menuDiv;
 }
 
 document.querySelector(".header").appendChild(menuMaker(menuItems));
+gsap.to('.menu', {duration:1, x:-500});
+
+
+
+
 
